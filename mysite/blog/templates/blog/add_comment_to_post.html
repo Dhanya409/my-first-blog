@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <style>
+        .post-form {
+            /* Add your CSS styles here */
+            /* For example: */
+            width: 50%;
+            margin: auto;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: medium;
+           
+        }
+
+        .save {
+            /* Add button styles here */
+            /* For example: */
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Send</button>
+    </form>
+{% endblock %}

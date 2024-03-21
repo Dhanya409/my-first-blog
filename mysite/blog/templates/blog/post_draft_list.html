@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <style>
+        /* Custom CSS styles for the blog post list */
+        .post {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .date {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .post h1 {
+            margin-top: 0;
+        }
+
+        .post p {
+            margin-bottom: 0;
+        }
+
+        .post a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+            
+        }
+    </style>
+
+    {% for post in posts %}
+        <div class="post">
+            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

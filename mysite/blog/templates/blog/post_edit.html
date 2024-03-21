@@ -1,6 +1,49 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <style>
+        /* Custom CSS styles for the new post form */
+        .post-form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+
+        .post-form label {
+            font-weight: bold;
+        }
+
+        .post-form input[type="text"],
+        .post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .post-form button[type="submit"] {
+            background-color: hsl(241, 66%, 46%);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .post-form button[type="submit"]:hover {
+            background-color: #09b93b;
+        }
+    </style>
+
     <h2>New post</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}

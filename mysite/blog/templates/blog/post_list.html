@@ -1,6 +1,48 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <style>
+        /* Custom CSS styles for the blog post list */
+        .post {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+        }
+
+        .date {
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .post h2 {
+            margin-top: 0;
+        }
+
+        .post p {
+            margin-bottom: 0;
+        }
+
+        .post a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        }
+
+        /* Positioning for Google Translate element */
+        #google_translate_element {
+            margin-top: 20px;
+        }
+    </style>
+
     {% for post in posts %}
         <article class="post">
             <time class="date">
@@ -10,4 +52,15 @@
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
     {% endfor %}
+
+    <div id="google_translate_element"></div>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
 {% endblock %}
