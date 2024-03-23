@@ -83,14 +83,3 @@ def comment_remove(request, pk):
 
 def approved_comments(self):
     return self.comments.filter(approved_comment=True)
-
-from django.shortcuts import render
-from .models import Post
-
-def search_results(request):
-    query = request.GET.get('q', '')  # Get the query parameter, default to empty string if not provided
-    if query:
-        results = Post.objects.filter(title__icontains=query)
-    else:
-        results = []  # Return empty list if no query is provided
-    return render(request, 'search_results.html', {'results': results, 'query': query})
