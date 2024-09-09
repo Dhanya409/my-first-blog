@@ -1,9 +1,5 @@
-asgiref
 dj-database-url
 Django
 gunicorn
-packaging
-pytz
-sqlparse
-typing_extensions
+Pillow 
 psycopg2-binary
